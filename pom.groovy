@@ -27,6 +27,7 @@ project(modelVersion: '4.0.0') {
         dependency(groupId: 'com.ofg', artifactId: 'micro-infra-spring-boot-starter', version: microInfraSpringVersion)  {
             exclusions {
                 exclusion groupId: 'org.codehaus.groovy', artifactId: 'groovy-all'
+                exclusion groupId: 'com.ofg', artifactId: 'micro-infra-spring-config'
             }
         }
         dependency(groupId: 'org.codehaus.groovy', artifactId: 'groovy-all', version: groovyVersion, classifier: 'indy')

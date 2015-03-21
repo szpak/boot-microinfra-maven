@@ -1,0 +1,41 @@
+buildscript {
+    ext {
+        groovyVersion = "2.4.2"
+        springBootVersion = "1.2.2.RELEASE"
+        microInfraSpringVersion = '0.8.15'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'spring-boot'
+
+group = 'com.ofg'
+version = '1.0.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.codehaus.groovy:groovy-all:$groovyVersion:indy"
+    compile("com.ofg:micro-infra-spring-boot-starter:$microInfraSpringVersion") {
+        exclude group: "org.codehaus.groovy"
+        exclude module: "micro-infra-spring-config"
+    }
+}
+
+tasks.withType(GroovyCompile) {
+  groovyOptions.optimizationOptions.indy = true
+}
+
+//optional, but handy
+wrapper {
+    gradleVersion '2.3'
+}
