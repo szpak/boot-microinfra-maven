@@ -19,7 +19,7 @@ project(modelVersion: '4.0.0') {
     }
 
     repositories {
-        repository(id: 'jcenter', url: 'http://jcenter.bintray.com')
+        repository id: 'jcenter', url: 'http://jcenter.bintray.com'
     }
 
     dependencies {
