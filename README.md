@@ -8,8 +8,8 @@ Running
 
 Set APP_ENV to "dev"
 
-# export APP_ENV=dev
+    # export APP_ENV=dev
 
 Run microservice
 
-# mvn spring-boot:run -Drun.jvmArguments="-Dspring.profiles.active=dev"
+    # mvn spring-boot:run -Drun.jvmArguments="-Dspring.profiles.active=dev"
