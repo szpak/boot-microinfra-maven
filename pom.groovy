@@ -4,13 +4,17 @@ project(modelVersion: '4.0.0') {
     artifactId 'sample-groovy-maven'
     version '1.0-SNAPSHOT'
 
+    def groovyVersion = '2.4.2'
+    def springBootVersion = '1.2.2.RELEASE'
+    def microInfraSpringVersion = '0.8.14'
+
     properties {
         'project.build.sourceEncoding' 'UTF-8'
         'start-class' 'demo.DemoApplication'
         'java.version' 1.8
     }
 
-    parent(groupId: 'org.springframework.boot', artifactId: 'spring-boot-starter-parent', version: '1.2.2.RELEASE') {
+    parent(groupId: 'org.springframework.boot', artifactId: 'spring-boot-starter-parent', version: springBootVersion) {
         relativePath()
     }
 
@@ -20,12 +24,12 @@ project(modelVersion: '4.0.0') {
 
     dependencies {
         dependency(groupId: 'org.springframework.boot', artifactId: 'spring-boot-starter-web')
-        dependency(groupId: 'com.ofg', artifactId: 'micro-infra-spring-boot-starter', version: '0.8.14')  {
+        dependency(groupId: 'com.ofg', artifactId: 'micro-infra-spring-boot-starter', version: microInfraSpringVersion)  {
             exclusions {
                 exclusion groupId: 'org.codehaus.groovy', artifactId: 'groovy-all'
             }
         }
-        dependency(groupId: 'org.codehaus.groovy', artifactId: 'groovy-all', version: '2.4.2', classifier: 'indy')
+        dependency(groupId: 'org.codehaus.groovy', artifactId: 'groovy-all', version: groovyVersion, classifier: 'indy')
     }
 
     build {
